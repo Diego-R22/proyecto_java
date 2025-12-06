@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url("/imagenes/fondo_inicio.jfif") no-repeat center center;
+  background-size: 100% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  animation: alejamiento 15s infinite alternate ease-in-out;
+}
+@keyframes alejamiento {
+  0% {
+    background-size: 100% auto;
+  }
+  100% {
+    background-size: 150% auto; /* Ajusta este valor para el efecto de alejamiento */
+  }
+}
+.login-container {
+  z-index: 1;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+}
+.login-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.div_inicio, .div_registrarse {
+  flex: 1 1 50%;
+  padding: 40px;
+}
+.div_inicio {
+  background: #fff;
+}
+.div_inicio h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+}
+.input-group input:focus {
+  border-color: #541E12;
+}
+a {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #541E12;
+  text-align: right;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #541E12;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+input[type="submit"]:hover {
+  background: #72291A;
+}
+/* Panel derecho */
+.div_registrarse {
+  background: linear-gradient(75deg, #e79494, #ffe989);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+}
+.div_registrarse h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.div_registrarse p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.div_registrarse button {
+  padding: 12px 25px;
+  border: none;
+  background: #541E12;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.div_registrarse button:hover {
+  background: #72291A;
+}
+/* Responsivo */
+@media (max-width: 768px) {
+  .login-card {
+    flex-direction: column;
+  }
+  .div_inicio, .div_registrarse {
+    flex: 1 1 100%;
+    border-radius: 0;
+  }
+}

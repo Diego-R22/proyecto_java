@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Distribuidora Ideal</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/iniciosesion.css}">
+</head>
+<body>
+
+<div class="fondo"></div>
+
+<main class="login-container">
+    <section class="login-card">
+        <div class="div_inicio">
+            <h2>Regístrate</h2>
+
+            <!-- Mensaje opcional -->
+            <div th:if="${error}"
+                 style="background:#ffe6e6;padding:10px;margin-bottom:12px;border:1px solid #ffb3b3;">
+                <p th:text="${error}"></p>
+            </div>
+
+            <!-- FORMULARIO -->
+            <form th:action="@{/registro}" method="POST">
+
+                <div class="input-group">
+                    <input type="number"
+                           name="numeroDocumento"
+                           placeholder="Número de documento"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text"
+                           name="nombre"
+                           placeholder="Nombre"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email"
+                           name="correo"
+                           placeholder="Correo"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password"
+                           name="contrasena"
+                           placeholder="Contraseña"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text"
+                           name="direccion"
+                           placeholder="Dirección"
+                           required>
+                </div>
+
+                <div class="input-group">
+                    <input type="number"
+                           name="telefono"
+                           placeholder="Teléfono"
+                           required>
+                </div>
+
+                <input type="submit" value="Registrar">
+
+                <p>¿Ya tienes cuenta?</p>
+                <a th:href="@{/iniciarsesion}">Inicia sesión aquí</a>
+
+            </form>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

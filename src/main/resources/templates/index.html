@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+                layout:decorate="layout/base.html" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+
+<body>
+
+<!-- Aplicar el layout -->
+<div layout:fragment="content">
+
+    <!-- Sección de Video -->
+    <section class="welcome-video">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source th:src="@{/imagenes/video.mp4}" type="video/mp4">
+            </video>
+            <div class="overlay">
+                <h1>Bienvenidos a Casa de eventos Aaron</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Los mejores Productos -->
+    <section class="top-products">
+        <div class="container">
+            <h2 class="section-title">Nuestros Eventos</h2>
+            <div class="product-grid">
+
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/fiesta.jpeg}" alt="Fiesta">
+                    <div class="product-info">
+                        <h3>Eventos sociales</h3>
+                        <p>
+                            Las mejores fiestas temáticas y noches de Gala en Bogotá con experiencias y espectáculos en vivo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/evento.jpeg}" alt="Eventos Corporativos">
+                    <div class="product-info">
+                        <h3>Eventos Corporativos</h3>
+                        <p>
+                            Salones con sonido e iluminación profesional para conferencias, charlas, capacitaciones y más.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/evento2.jpeg}" alt="Eventos Culturales">
+                    <div class="product-info">
+                        <h3>Eventos Culturales</h3>
+                        <p>
+                            Salas para espectáculos en vivo, promoviendo el arte, historia y cultura.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Imágenes -->
+    <section class="image-gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Eventos</h2>
+            <div class="gallery-grid">
+
+                <img th:src="@{/imagenes/img1.jpeg}" alt="Imagen 1">
+                <img th:src="@{/imagenes/img2.jpeg}" alt="Imagen 2">
+                <img th:src="@{/imagenes/img3.jpeg}" alt="Imagen 3">
+                <img th:src="@{/imagenes/img4.jpeg}" alt="Imagen 4">
+                <img th:src="@{/imagenes/img5.jpeg}" alt="Imagen 5">
+                <img th:src="@{/imagenes/img6.jpeg}" alt="Imagen 6">
+                <img th:src="@{/imagenes/img7.jpeg}" alt="Imagen 7">
+                <img th:src="@{/imagenes/img8.jpeg}" alt="Imagen 8">
+                <img th:src="@{/imagenes/img9.jpeg}" alt="Imagen 9">
+                <img th:src="@{/imagenes/img10.jpeg}" alt="Imagen 10">
+                <img th:src="@{/imagenes/img11.jpeg}" alt="Imagen 11">
+                <img th:src="@{/imagenes/img12.jpeg}" alt="Imagen 12">
+                <img th:src="@{/imagenes/img13.jpeg}" alt="Imagen 13">
+                <img th:src="@{/imagenes/img14.jpeg}" alt="Imagen 14">
+                <img th:src="@{/imagenes/img15.jpeg}" alt="Imagen 15">
+                <img th:src="@{/imagenes/img16.jpeg}" alt="Imagen 16">
+                <img th:src="@{/imagenes/img17.jpeg}" alt="Imagen 17">
+                <img th:src="@{/imagenes/img18.jpeg}" alt="Imagen 18">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Paquetes -->
+    <section class="top-products">
+        <div class="container">
+            <h2 class="section-title">Nuestros paquetes</h2>
+            <div class="product-grid">
+
+                <!-- Paquete 1 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/tematica.jfif}" alt="Fiesta Temática">
+                    <div class="product-info">
+                        <h3>Fiesta Temática</h3>
+                        <p>Este paquete cuenta con</p>
+                        <button class="button-container">Conoce más</button>
+                    </div>
+                </div>
+
+                <!-- Paquete 2 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/quinceaños.jfif}" alt="Fiesta de 15">
+                    <div class="product-info">
+                        <h3>Paquete de 15</h3>
+                        <p>Este paquete cuenta con</p>
+                        <button class="button-container">Conoce más</button>
+                    </div>
+                </div>
+
+                <!-- Paquete 3 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/boda.jfif}" alt="Boda">
+                    <div class="product-info">
+                        <h3>Paquete de Boda</h3>
+                        <p>Este paquete cuenta con</p>
+                        <button class="button-container">Conoce más</button>
+                    </div>
+                </div>
+
+                <!-- Paquete 4 -->
+                <div class="product-card">
+                    <img th:src="@{/imagenes/coorporativo.jfif}" alt="Corporativo">
+                    <div class="product-info">
+                        <h3>Paquete Corporativo</h3>
+                        <p>Este paquete cuenta con</p>
+                        <button class="button-container">Conoce más</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div> <!-- Fin del replace -->
+
+</body>
+</html>
