@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:xlmns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +20,13 @@
 
 <div class="container">
 
-    <!-- Menu lateral -->
+    <!-- Menú lateral -->
     <nav class="b">
-
         <section class="c">
-            <input class="d" type="search" placeholder="Filtrar Menu"/>
+            <input class="d" type="search" placeholder="Filtrar Menú"/>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                  fill="currentColor" class="e bi bi-search" viewBox="0 0 16 16">
-                <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414z"/>
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414z"/>
             </svg>
         </section>
 
@@ -35,7 +34,7 @@
 
             <!-- ADMINISTRADOR -->
             <li class="g" th:if="${usuario.tipoUsuario == 'Administrador'}">
-                <a class="h" th:href="@{/perfil}">👤 Perfil</a>
+                <a class="h" th:href="@{/admin/perfil}">👤 Perfil</a>
             </li>
             <li class="g" th:if="${usuario.tipoUsuario == 'Administrador'}">
                 <a class="h" th:href="@{/usuarios}">👥 Usuarios</a>
@@ -55,7 +54,7 @@
 
             <!-- GERENTE -->
             <li class="g" th:if="${usuario.tipoUsuario == 'Gerente'}">
-                <a class="h" th:href="@{/perfil-gerente}">👤 Perfil</a>
+                <a class="h" th:href="@{/gerente/perfil}">👤 Perfil</a>
             </li>
             <li class="g" th:if="${usuario.tipoUsuario == 'Gerente'}">
                 <a class="h" th:href="@{/productos}">🛒 Producto</a>
@@ -72,7 +71,7 @@
 
             <!-- SUP BODEGA -->
             <li class="g" th:if="${usuario.tipoUsuario == 'Sup_bodega'}">
-                <a class="h" th:href="@{/perfil-supbodega}">👤 Perfil</a>
+                <a class="h" th:href="@{/supbodega/perfil}">👤 Perfil</a>
             </li>
             <li class="g" th:if="${usuario.tipoUsuario == 'Sup_bodega'}">
                 <a class="h" th:href="@{/productos}">🛒 Producto</a>
@@ -92,6 +91,7 @@
 
     <!-- Contenido dinámico -->
     <section class="bienvenida container mt-5" layout:fragment="content">
+        <!-- Aquí se insertará la vista específica -->
     </section>
 
 </div>

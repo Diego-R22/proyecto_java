@@ -14,48 +14,42 @@ public class LoginController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // ✅ GET → muestra el formulario
     @GetMapping("/iniciarsesion")
-    public String mostrarLogin(Model model) {
+    public String mostrarLogin() {
         return "iniciarsesion";
     }
 
-    @PostMapping("/login")
+    // ✅ POST → procesa el login
+    @PostMapping("/iniciarsesion")
     public String validarLogin(
-            @RequestParam("numeroDocumento") Long numeroDocumento,
-            @RequestParam("contrasena") String contrasena,
-            Model model,
-            HttpSession session) {
+            @RequestParam Long numeroDocumento,
+            @RequestParam String contrasena,
+            HttpSession session,
+            Model model) {
 
-        // Buscar usuario por número de documento
+        // ✅ MENSAJE DE PRUEBA
+        System.out.println("✅ LLEGÓ AL POST DE LOGIN");
+
         Usuario acceso = usuarioService.buscarPorNumeroDocumento(numeroDocumento);
 
-        if (acceso != null && acceso.getContrasena().equals(contrasena)) {
-
-            // Guardar usuario en sesión
-            session.setAttribute("usuario", acceso);
-
-            // Redirigir según el tipo
-            Usuario.TipoUsuario tipo = acceso.getTipoUsuario();
-
-            if (tipo == Usuario.TipoUsuario.Administrador) {
-                return "redirect:/admin/perfil";
-            }
-
-            if (tipo == Usuario.TipoUsuario.Gerente) {
-                return "redirect:/gerente/perfil";
-            }
-
-            if (tipo == Usuario.TipoUsuario.Sup_bodega) {
-                return "redirect:/supbodega/perfil";
-            }
-
-            return "redirect:/perfil"; // fallback
+        if (acceso == null || !acceso.getContrasena().equals(contrasena)) {
+            model.addAttribute("error", "Documento o contraseña incorrectos");
+            return "iniciarsesion";
         }
 
-        model.addAttribute("error", "Documento o contraseña incorrectos");
-        return "iniciarsesion";
+        session.setAttribute("usuario", acceso);
+
+        // REDIRECCIONES SEGÚN TIPO DE USUARIO
+        if (acceso.getTipoUsuario() == Usuario.TipoUsuario.Administrador) {
+            return "redirect:/admin/perfil";
+        } else if (acceso.getTipoUsuario() == Usuario.TipoUsuario.Sup_bodega) {
+            return "redirect:/supbodega/perfil"; // <-- nueva ruta para sub_bodega
+        } else if (acceso.getTipoUsuario() == Usuario.TipoUsuario.Gerente) {
+            return "redirect:/gerente/perfil";
+        }
+
+        // Por defecto
+        return "redirect:/";
     }
 }
-
-
-

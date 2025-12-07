@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 
-
 @Controller
 @RequestMapping("/gerente")
 public class GerenteController {
@@ -17,12 +16,12 @@ public class GerenteController {
 
         Usuario usuario = (Usuario) session.getAttribute("usuario");
 
-        if (usuario == null || !usuario.getTipoUsuario().equals("Gerente")) {
+        // ✅ Validación correcta de sesión y rol usando ENUM
+        if (usuario == null || usuario.getTipoUsuario() != Usuario.TipoUsuario.Gerente) {
             return "redirect:/iniciarsesion";
         }
 
         model.addAttribute("usuario", usuario);
-        return "gerente/perfil-gerente";
+        return "gerente/perfil";
     }
 }
-
